@@ -1,28 +1,58 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Header />
+    <div class="questions-header">
+      <QuestionsHeader />
+    </div>
+    <div class="questions">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Header from "@/components/Header";
+import QuestionsHeader from "@/components/QuestionsHeader";
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Header,
+    QuestionsHeader
   }
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.questions-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.questions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 550px) {
+  .questions-header {
+    margin-bottom: 20px;
+  }
+
+  #app {
+    padding: 0 15px;
+  }
 }
 </style>
